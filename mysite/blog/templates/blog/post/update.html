@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}Редактирование{% endblock %}
+
+{% block content %}
+<h1>Search for posts</h1>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Изменить">
+</form>
+
+{% endblock %}

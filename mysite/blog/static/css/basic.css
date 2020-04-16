@@ -1,0 +1,40 @@
+
+h2.blog-post-title a {
+    color:rgb(78, 44, 199);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2.blog-post-title a:hover {
+    color: rgb(105, 105, 190);
+}
+.blog-post-meta {
+    color: #999;
+}
+.sidebar {
+    background-color: rgb(216, 209, 209);
+    
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+#search-box {
+    width: 500px;
+}
+#home_link a{
+    text-decoration: none;
+    cursor: pointer;
+    color:rgb(78, 44, 199);
+}
+
+#home_link a:hover{
+    color: rgb(105, 105, 190);
+}
+
+.post-image {
+    width: 550px;
+    height: 350px;
+}
+

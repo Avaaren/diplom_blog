@@ -1,0 +1,50 @@
+{% load blog_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="col-md-4 sidebar">
+
+                <h2 id='home_link'><a href="{% url 'blog:post_list' %}">Помощь бездомным животным</a></h2>
+                <h3>Всего постов : {% posts_count %}</h3>
+                <h3>Последние посты</h3>
+                {% show_latest_posts %}
+                <h3>Самые обсуждаемые посты</h3>
+                {% most_commented_posts as mcp %}
+                {% for post in mcp %}
+                <ul>
+                    <li>
+                        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    </li>
+                </ul>
+                {% endfor %}
+                <hr>
+                {% if request.user.is_authenticated %}
+                <h4>Вы зашли как {{ request.user }}</h4>
+                <a href="{% url 'blog:post_create' %}">Новый пост</a>
+                <br>
+                <a href="{% url 'blog:logout' %}">Выйти из учетной записи</a>
+                {% else %}
+                <h5>Вы не вошли в систему. <a href="{% url 'blog:login' %}">Авторизироваться</a></h5>
+                <h5>Нету аккаунта? <a href="{% url 'blog:registration' %}">Зарегестрируйтесь</a></h5>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

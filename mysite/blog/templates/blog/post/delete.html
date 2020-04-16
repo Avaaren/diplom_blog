@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}Удалить{% endblock %}
+
+{% block content %}
+<h1>Вы действительно хотите удалить публикацию {{ object.title }}?</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>
+        <input type="submit" value="Да" />
+        <a href="{{ object.get_absolute_url }}">Нет</a>
+    </p>
+</form>
+
+{% endblock %}
