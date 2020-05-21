@@ -1,4 +1,20 @@
 $(document).ready(function () {
+    
+    $(window).scroll(function(){
+        if (window.scrollY > 250) {
+          $('.slider').show(200);
+        }
+        else{
+          $('.slider').hide(200);
+        }
+      });
+
+
+
+
+    $('#search-box').focusout(function(){
+        $('#result').hide();
+    });
     $('#search-box').on('input', function (e) {
         $.ajax({
             url: '/ajax_search/',
@@ -9,7 +25,9 @@ $(document).ready(function () {
             success: function (data) {
                 // $('#result').text($(this).val());
                 console.log(data.search_result);
+                
                 $('#result').empty();
+                $('#result').show();
                 if (data.search_result.length == 0) {
                     $('#result').append($('<p>').text('empty'));
                 }
