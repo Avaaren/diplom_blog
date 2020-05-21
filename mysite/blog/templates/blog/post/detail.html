@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
+
 <h1>{{ post.title }}</h1>
 <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
 {% if request.user == post.author %}
@@ -14,11 +15,13 @@
     {% endif %}" class='post-image'>
 {{ post.body|linebreaks }}
 
-<h3>Similar posts</h3>
+<h3>Похожие посты</h3>
 
 {% for post in similar_posts %}
 <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
 <br>
+{% empty %}
+<h4>Нет похожих постов</h4>
 {% endfor %}
 
 {% with comments.count as total_comments %}
@@ -27,12 +30,10 @@
 
 {% for comment in comments %}
 <div class="comment">
-   <p>
-      Comment {{ forloop.counter }} by {{ comment.name }}
-      {{ comment.created }}
-
-   </p>
-   <h3>{{ comment.body|linebreaks }}</h3>
+   <span class="comentator"> {{ comment.name }}:</span>
+   <br>
+   <span class='text'>{{ comment.body|linebreaks }}</span> 
+   <hr>
 </div>
 {% empty %}
 <p>There is no comments yet</p>
@@ -58,4 +59,7 @@
 </form>
 
 {% endif %}
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
 {% endblock %}
