@@ -14,7 +14,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
+                <div class="slider">
+                    <span>
+                        <i><svg class="bi bi-arrow-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V4a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 01.708 0l3 3a.5.5 0 01-.708.708L8 3.707 5.354 6.354a.5.5 0 11-.708-.708l3-3z" clip-rule="evenodd"/>
+                          </svg></i>
+                    </span>
+                </div>
                 {% block content %}
+                
                 {% endblock %}
             </div>
             <div class="col-md-4 sidebar">
@@ -26,25 +35,35 @@
                 <h3>Самые обсуждаемые посты</h3>
                 {% most_commented_posts as mcp %}
                 {% for post in mcp %}
-                <ul>
-                    <li>
-                        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                    </li>
-                </ul>
+                        <a href="{{ post.get_absolute_url }}" class="sidebar-link">{{ post.title }}</a>
+                <br>
                 {% endfor %}
                 <hr>
                 {% if request.user.is_authenticated %}
                 <h4>Вы зашли как {{ request.user }}</h4>
-                <a href="{% url 'blog:post_create' %}">Новый пост</a>
+                <a href="{% url 'blog:post_create' %}" class="sidebar-link">Новый пост</a>
                 <br>
-                <a href="{% url 'blog:logout' %}">Выйти из учетной записи</a>
+                <a href="{% url 'blog:logout' %}" class="sidebar-link">Выйти из учетной записи</a>
                 {% else %}
-                <h5>Вы не вошли в систему. <a href="{% url 'blog:login' %}">Авторизироваться</a></h5>
-                <h5>Нету аккаунта? <a href="{% url 'blog:registration' %}">Зарегестрируйтесь</a></h5>
+                <h5>Вы не вошли в систему. <a href="{% url 'blog:login' %}" class="sidebar-link">Авторизироваться</a></h5>
+                <h5>Нету аккаунта? <a href="{% url 'blog:registration' %}" class="sidebar-link">Зарегестрируйтесь</a></h5>
                 {% endif %}
+                <hr>
+                <h3>Посетите сайты приютов</h3>
+                <a href="https://superkot.by/" class="sidebar-link">Приют "СУПЕРКОТ"</a>
+                <br>
+                <a href="https://vk.com/domik_spasennih_dush" class="sidebar-link">Приют "Домик Спасенных Душ"</a>
+                <br>
+                <a href="https://kotvokoshke.by/content/priyut-okoshko" class="sidebar-link">Приют "Кот в окошке"</a>
+                <br>
+                <a href="https://egida.by/catalog/dog" class="sidebar-link">Каталог бездомных собак</a>
+                <br>
+                <a href="https://egida.by/catalog/cat" class="sidebar-link">Каталог бездомных кошек</a>
             </div>
         </div>
     </div>
-    
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
