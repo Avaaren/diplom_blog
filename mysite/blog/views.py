@@ -66,6 +66,9 @@ def post_detail(request, year, month, day, post):
                                                      }
                   )
 
+def help(request):
+    return render(request, 'blog/help.html', {})
+
 def register(request):
     if request.method == "POST":
         user_form = UserForm(request.POST, request.FILES)
