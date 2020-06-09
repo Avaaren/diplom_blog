@@ -5,6 +5,8 @@ h2.blog-post-title a {
     cursor: pointer;
 }
 
+p{ text-align: justify;}
+
 h2.blog-post-title a:hover {
     color: rgb(105, 105, 190);
 }
@@ -14,6 +16,8 @@ h2.blog-post-title a:hover {
 .sidebar {
     background-color: rgb(243, 235, 235);
     border-radius: 15px 0 0 15px ;
+    text-align: justify;
+    background:linear-gradient(to left, rgb(129, 129, 129), rgb(221, 220, 220))
     
 }
 
@@ -24,6 +28,27 @@ h2.blog-post-title a:hover {
     padding: 10px;
     text-decoration: none !important;
     font-size: 22px;
+    font-style:italic;
+    color: rgb(28, 0, 105);
+
+}
+
+/* .sidebar-link:visited {
+   
+} */
+.sidebar-link:hover {
+   color: black;
+}
+.after:after {
+    content:'';
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5px;
+    width:75%;
+    height: 0.02%;
+    /* font-weight: 300px !important; */
+    background-color: #1b1a1a;
 
 }
 
