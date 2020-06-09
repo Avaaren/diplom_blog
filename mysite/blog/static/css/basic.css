@@ -33,9 +33,11 @@ h2.blog-post-title a:hover {
 
 }
 
-/* .sidebar-link:visited {
-   
-} */
+.logo {
+    
+    background-image: url("http://127.0.0.1:8000/media/products/2020/06/02/02.jpg");
+    border-radius: 15px;
+}
 .sidebar-link:hover {
    color: black;
 }
@@ -51,6 +53,7 @@ h2.blog-post-title a:hover {
     background-color: #1b1a1a;
 
 }
+
 
 .search-box {
     border-radius: 40px;
@@ -91,12 +94,14 @@ h2.blog-post-title a:hover {
 #home_link a{
     text-decoration: none;
     cursor: pointer;
-    color:rgb(78, 44, 199);
+    color:rgb(209, 209, 209);
+    text-shadow: -2px 1px 6px rgba(255, 255, 255, 0.97);
     
 }
 
 #home_link a:hover{
-    color: rgb(105, 105, 190);
+    color: rgb(209, 209, 209);
+    text-shadow: -2px 1px 6px rgba(228, 228, 228, 0.97);
 }
 .post{
     margin: 15px 15px 15px 0;
