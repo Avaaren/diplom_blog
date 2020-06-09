@@ -23,21 +23,27 @@
                     </span>
                 </div>
                 {% block content %}
-                
+               
                 {% endblock %}
             </div>
             <div class="col-md-4 sidebar">
-
-                <h2 id='home_link'><a href="{% url 'blog:post_list' %}">Помощь бездомным животным</a></h2>
+                <div class="logo">
+                    <h2 id='home_link'><a href="{% url 'blog:post_list' %}">Помощь бездомным животным</a></h2>
+                    
+                </div>
+                <!-- <h2 id='home_link'><a href="{% url 'blog:post_list' %}">Помощь бездомным животным</a></h2> -->
                 <h3>Всего постов : {% posts_count %}</h3>
                 <h3>Последние посты</h3>
                 {% show_latest_posts %}
                 <h3>Самые обсуждаемые посты</h3>
                 {% most_commented_posts as mcp %}
                 {% for post in mcp %}
-                        <a href="{{ post.get_absolute_url }}" class="sidebar-link">{{ post.title }}</a>
+                        <a href="{{ post.get_absolute_url }}" class="sidebar-link after">{{ post.title }}</a>
                 <br>
                 {% endfor %}
+                <hr>
+                <h4>Справка (О программе)</h4>
+                <a href="{% url 'blog:help' %}" class="sidebar-link">Справка</a>
                 <hr>
                 {% if request.user.is_authenticated %}
                 <h4>Вы зашли как {{ request.user }}</h4>
