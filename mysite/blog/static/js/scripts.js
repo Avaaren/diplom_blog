@@ -10,7 +10,11 @@ $(document).ready(function () {
       });
 
 
-
+    $('.slider').on('click', function(e){
+        $([document.documentElement, document.body]).animate({
+            scrollTop: 0
+        }, 200);
+    });
 
     $('#search-box').focusout(function(){
         $('#result').hide();
