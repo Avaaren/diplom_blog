@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'taggit',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,8 @@ LOGIN_REDIRECT_URL = 'blog:post_list'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
